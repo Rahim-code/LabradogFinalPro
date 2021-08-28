@@ -1,0 +1,141 @@
+﻿@model List<LabradogApp.ViewModels.BasketItemViewModel>
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="SP align-items-center d-flex justify-content-center mb-5">
+    <h1 class="AU">Checkout</h1>
+</div>
+
+<div class="container">
+
+    <div class="row LG mx-auto">
+        <h4 class="DA">Delivery Address</h4>
+        <form method="post" action="@Url.Action("create","order")">
+            <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center my-2">
+                <input class="form-control form-control-sm rounded-pill py-2" type="text" name="FullName" placeholder="Full Name" required>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 my-2">
+                <input class="form-control form-control-sm rounded-pill py-2 my-3" type="text" name="Adress" placeholder="Address" required>
+                <input class="form-control form-control-sm rounded-pill py-2 my-3" type="text" name="delivery-city/town" placeholder="City/Town">
+                <input class="form-control form-control-sm rounded-pill my-3 py-2" type="text" name="ContactPhone" placeholder="Phone" required>
+                <input class="form-control form-control-sm rounded-pill py-2" type="text" name="Note" placeholder="Note" required>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-11 my-5 ">
+                <button type="submit" class="btn btn-warning rounded-pill BRPB text-dark px-3 fw-bold py-2 text-white">Proceed to Checkout</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="d-none d-sm-none d-md-block ">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <p class="text-muted px-3 ">
+                    Product Name
+                </p>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <p class="text-muted text-center">Price</p>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <p class="text-muted text-center">
+                    Quantity
+                </p>
+            </div>
+            <div class="col-lg-2 col-md-2">
+                <p class="text-muted text-center">Total</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div class="card mb-3 border-0" style="max-width: 100%;">
+                            <div class="row g-0">
+                                <div class="col-md-3">
+                                    <img style="width: 100%;" src="~/uploads/@item.Image" class="rounded-start ms-2" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <span class="HP FFWT"> @item.Name -</span>
+                                            <span class="text-muted FFWT">
+                                                @if (item.Title.Length > 60)
+                                                {
+                                                    @item.Title.Substring(0, 60)
+
+                                                }
+                                                else
+                                                {
+                                                    @item.Title
+                                                }
+
+                                                ...
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 10vh;" class="col-lg-2 col-sm-12 col-md-2">
+                        <p style="height: 100%;" class="text-muted d-flex justify-content-center align-items-center">
+                            @item.Price
+                        </p>
+                    </div>
+                    <div style="height: 10vh;" class="col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center align-items-center">
+                        @*<button class="rounded-pill BTCR border-0 py-2 px-3" type="button" onClick="onClick()">+</button>*@
+                        <span class="mx-3"> <a id="clicks">@item.Count</a></span>
+                        @*<button class="rounded-pill BTCR2 border-0" type="button" onClick="onClickk()">-</button>*@
+                    </div>
+                    <div style="height: 10vh;" class="col-lg-2 col-md-2 col-sm-12">
+                        <p style="height: 100%;" class="text-muted d-flex justify-content-center align-items-center">
+                            @(item.TotalPrice)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+<div class="container d-flex justify-content-center my-3">
+    <div class="card" style="width: 30rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-lg-6">
+                        Cart Subtotal
+                    </div>
+                    <div class="col-lg-6">
+                        @Model.Sum(x => x.TotalPrice)
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+
+                    <div class="col-lg-6">Shopping</div>
+                    <div class="col-lg-6">Free</div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-lg-6">
+                        Total
+                    </div>
+                    <div class="col-lg-6">
+                        @Model.Sum(x => x.TotalPrice)
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
