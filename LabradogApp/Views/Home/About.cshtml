@@ -15,7 +15,7 @@
         @Html.Raw(Model.Setting.DogCare)
         <div class="d-flex">
             <div class="">
-                <i class="fas fa-sun SUN"></i> <p class="">
+                <i class="bi bi-sun SUN"></i> <p class="">
                     Daily <br>
                     Walking
                 </p>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="">
-                <i class="fas fa-calendar SUN"></i><p class="">
+                <i class="bi bi-alarm SUN"></i><p class="">
                     Saving <br>
                     Your Time
                 </p>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
-        <div style="width: 600px !important;" class="container d-flex justify-content-center align-items-center">
+        
 
             <iframe width="100%" height="350" src="@Model.Setting.YoutubeLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -56,10 +56,14 @@
         <h1 class="WCA">We Care About <span class="OP">Our Pets</span> Since Their Birth</h1>
         <p class="text-muted">We provide high-quality dog care services and advice for a well-trained dog</p>
     </div>
-    <div class="d-flex justify-content-center flex-wrap">
+    <div class="container">
+
+    <div class="row">
         @foreach (var item in Model.Services)
         {
-            <div class="card mx-3 border-0" style="width: 20rem;">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+
+            <div class="card mx-3 border-0 AF" style="width: 20rem;">
                 <img src="~/uploads/@item.Image" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h4 style="font-size: 20px;" class="text-center HD">@item.Title</h4>
@@ -68,7 +72,9 @@
                 </div>
 
             </div>
+            </div>
         }
+    </div>
     </div>
 
 </div>
@@ -109,7 +115,7 @@
         }
     </div>
 </div>
-<div class="GTLN py-5">
+@*<div class="GTLN py-5">
     <h4 class="text-center the ">Get The Latest News</h4>
     <p class="text-muted text-center ">Receive a 10% discount code via email when you sign up for our news & updates.</p>
     <form class="rd-form rd-form-boxed-2 rd-mailform FPA my-2 w-50 mx-auto w-xs-75" data-form-output="footer-newsletter" data-form-type="contact" method="post" action="components/rd-mailform/rd-mailform.php" novalidate="novalidate">
@@ -119,4 +125,4 @@
         </div>
         <button style="width: 50px; height: 50px;" class="btn btn-sm rd-form-boxed-btn bg-warning FBC rounded-circle" type="submit"><span class="mdi-chevron-right"></span></button>
     </form>
-</div>
+</div>*@

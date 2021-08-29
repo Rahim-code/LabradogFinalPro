@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         a {
             text-decoration: none !important;
@@ -121,7 +122,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav d-flex justify-content-end w-100">
-                    <li class="nav-item dropdown mx-4">
+                    <li class="nav-item dropdown mx-3">
                         <a class="nav-link  dropdown-toggle H" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-current="page" href="/">Home</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->
@@ -130,23 +131,23 @@
                             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                     </li>
-                    <li class="nav-item mx-4">
+                    <li class="nav-item mx-3">
                         <a class="nav-link H" href="/about">About</a>
                     </li>
-                    <li class="nav-item dropdown mx-4">
+                    <li class="nav-item dropdown mx-3">
                         <a class="nav-link H" href="/services" aria-expanded="false">
                             Services
                         </a>
 
                     </li>
-                    <li class="nav-item mx-4">
+                    <li class="nav-item mx-3">
                         <a class="nav-link H" href="/team">Team</a>
                     </li>
-                    <li class="nav-item mx-4">
+                    <li class="nav-item mx-3">
                         <a class="nav-link H" href="/gallery">Gallery</a>
                     </li>
 
-                    <li class="nav-item dropdown mx-4">
+                    <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle H" href="/shop/index" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Shop
                         </a>
@@ -158,7 +159,7 @@
                             @*<li><a class="dropdown-item" href="checkout.html">Checkout</a></li>*@
                         </ul>
                     </li>
-                    <li class="nav-item dropdown mx-4">
+                    <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle H" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Pages
                         </a>
@@ -167,7 +168,7 @@
 
                         </ul>
                     </li>
-                    <li class="nav-item mx-4">
+                    <li class="nav-item mx-3">
                         <a class="nav-link H" href="/contact">Contacts</a>
                     </li>
 
@@ -181,7 +182,7 @@
     {
 <li class="nav-item mx-4">
     <form action="@Url.Action("logout","auth")" method="post">
-        <button type="submit" class="nav-link H btn btn-danger text-white"> Çıxış</button>
+        <button type="submit" class="nav-link H btn btn-danger text-white">Log out</button>
     </form>
 </li>
 }
