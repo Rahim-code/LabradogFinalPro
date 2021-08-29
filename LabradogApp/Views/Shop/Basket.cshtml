@@ -11,7 +11,7 @@
 <div class="container">
     <div class="d-none d-sm-none d-md-block ">
         <div class="row">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-5 col-md-5">
                 <p class="text-muted px-3 ">
                     Product Name
                 </p>
@@ -35,7 +35,7 @@
         {
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
                         <div class="card mb-3 border-0" style="max-width: 100%;">
                             <div class="row g-0">
                                 <div class="col-md-3">
@@ -48,13 +48,10 @@
                                             <span class="text-muted FFWT">
                                                 @if (item.Title.Length > 60)
                                                 {
-                                                    @item.Title.Substring(0, 60)
-
-                                                }
+                                @item.Title.Substring(0, 60) }
                                                 else
                                                 {
-                                                    @item.Title
-                                                }
+                                @item.Title}
 
                                                 ...
                                             </span>
@@ -76,21 +73,24 @@
                         <span class="mx-3"> <input id="clicks" name="countClick" value="@item.Count" style="border:none;width:20px;" /></span>
                         @if (item.Count > 1)
                         {
-                            <form method="post" action="@Url.Action("addbasket", "shop", new { id = item.Id, countClick = (item.Count - 1), type = 0 })">
-                                <button class="rounded-pill BTCR2 border-0" type="submit">-</button>
-                                <input type="hidden" value="Decrement" name="type" />
-                            </form>
-                        }
-                        else
-                        {
-                                <button class="rounded-pill BTCR2 border-0" type="submit">-</button>
-                                <input type="hidden" value="Decrement" name="type" />
-                        }
+                <form method="post" action="@Url.Action("addbasket", "shop", new { id = item.Id, countClick = (item.Count - 1), type = 0 })">
+                    <button class="rounded-pill BTCR2 border-0" type="submit">-</button>
+                    <input type="hidden" value="Decrement" name="type" />
+                </form> }
+                                else
+                                {
+                <button class="rounded-pill BTCR2 border-0" type="submit">-</button>
+                                    <input type="hidden" value="Decrement" name="type" />}
                     </div>
+
                     <div style="height: 10vh;" class="col-lg-2 col-md-2 col-sm-12">
                         <p style="height: 100%;" class="text-muted d-flex justify-content-center align-items-center">
                             @(item.TotalPrice)
                         </p>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-12 py-4">
+
+                        <a   asp-action="removebasket" asp-controller="shop" asp-route-id="@item.Id"><i style=" color: #ff7a00" class="bi bi-x-lg"></i></a>
                     </div>
                 </div>
 
@@ -106,6 +106,7 @@
             <p class="justify-content-center  justify-content-lg-end d-flex align-items-center ">
                 <span>Total:</span>
                 <span class=" fs-4">@Model.Sum(x => x.TotalPrice)</span>
+                
             </p>
             <a style="line-height:45px" type="button" class="btn btn-warning rounded-pill BRPB text-dark px-3 fw-bold py-2 text-white" href="/checkout">Proceed to Checkout</a>
         </div>

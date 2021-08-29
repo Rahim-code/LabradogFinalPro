@@ -252,5 +252,20 @@ namespace LabradogApp.Controllers
             return RedirectToAction("basket");
         }
 
+        public IActionResult RemoveBasket(int id)
+        {
+            var baskets = HttpContext.Request.Cookies["basket"];
+            var productBaskets = JsonConvert.DeserializeObject<List<ProductBasketItem>>(HttpContext.Request.Cookies["basket"]);
+
+            productBaskets.Remove(productBaskets.FirstOrDefault(x => x.Id == id));
+
+            HttpContext.Response.Cookies.Append("basket", JsonConvert.SerializeObject(productBaskets, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            }));
+
+            return RedirectToAction("basket", "shop");
+        }
+
     }
 }

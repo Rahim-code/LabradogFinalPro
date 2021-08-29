@@ -86,13 +86,17 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Gallery</span>
                 </a>
-                <a class="nav-link" asp-action="index" asp-controller="fag"  href="@Url.Action("index","faq")">
+                <a class="nav-link" asp-action="index" asp-controller="fag" href="@Url.Action("index","faq")">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Faqs</span>
-                </a> 
-                <a class="nav-link" asp-action="index" asp-controller="didyouknow"  href="@Url.Action("index","DidYouKnow")">
+                </a>
+                <a class="nav-link" asp-action="index" asp-controller="didyouknow" href="@Url.Action("index","DidYouKnow")">
                     <i class="fas fa-fw fa-table"></i>
                     <span>DidYouKnows</span>
+                </a>
+                <a class="nav-link" asp-action="index" asp-controller="Setting" href="@Url.Action("index","setting")">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Setting</span>
                 </a>
             </li>
 
@@ -171,10 +175,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="@Url.Action("setting","setting")">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
+                               
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
